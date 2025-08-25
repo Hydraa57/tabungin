@@ -1,0 +1,6 @@
+{
+  "appId": "com.hafid.keuangan",
+  "appName": "Dashboard Keuangan",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}

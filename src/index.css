@@ -1,0 +1,128 @@
+:root {
+  --bg: #0b1220;
+  --text: #eaf0ff;
+  --card: #0f1729;
+  --border: #22324e;
+  --muted: #9fb0d3;
+}
+body.light {
+  --bg: #f7f9ff;
+  --text: #0b1220;
+  --card: #ffffff;
+  --border: #e6eaf3;
+  --muted: #51607c;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.small {
+  font-size: 12px;
+  color: var(--muted);
+}
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: grid;
+  place-items: center;
+  z-index: 1400;
+}
+.modal {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  width: min(680px, 94vw);
+}
+/* Smooth theme transition */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  transition: background-color 0.28s ease, color 0.28s ease;
+}
+
+.card,
+.input,
+.select,
+.smart-header,
+.table-scroll,
+.modal,
+.mini-btn,
+.icon-btn {
+  transition: background-color 0.28s ease, color 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+/* Hormati prefers-reduced-motion (aksesibilitas) */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Hover/active micro-interactions */
+.icon-btn:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+.icon-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.mini-btn:hover {
+  filter: brightness(1.06);
+}
+.mini-btn:active {
+  filter: brightness(0.98);
+}
+
+/* ganti yang lama */
+.page-frame {
+  /* sebelumnya ada translateY */
+  animation: page-fade 0.28s ease both;
+}
+@keyframes page-fade {
+  from {
+    opacity: 0; /* HAPUS translateY di sini */
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Optional: soft overlay saat ganti tema */
+body.theme-fading::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(1200px 240px at 50% -20%, rgba(0, 0, 0, 0.06), transparent 60%);
+  animation: theme-fade 0.28s ease both;
+}
+@keyframes theme-fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

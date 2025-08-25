@@ -1,0 +1,38 @@
+[
+  {
+    "id": "2qRmml6LvWqsTUL7Uvq8",
+    "tipe": "Pemasukan",
+    "tanggal": "2025-08-10",
+    "deskripsi": "Gaji Bulanan",
+    "jumlah": 5000000000,
+    "kategori": "—",
+    "_idx": 0
+  },
+  {
+    "id": "Ic8utCkIUfmsyDXWblRg",
+    "tanggal": "2025-08-10",
+    "kategori": "Makanan",
+    "tipe": "Pengeluaran",
+    "deskripsi": "Daging Unta",
+    "jumlah": 1000000,
+    "_idx": 1
+  },
+  {
+    "id": "NRpF6GJEoIzqs3PnA4kp",
+    "kategori": "Makanan",
+    "tipe": "Pengeluaran",
+    "deskripsi": "nasi padang",
+    "tanggal": "2025-08-10",
+    "jumlah": 20000,
+    "_idx": 2
+  },
+  {
+    "id": "SSGzat8t1CNs10fq9fta",
+    "deskripsi": "Jajan bakso",
+    "kategori": "Jajan",
+    "jumlah": 1000000,
+    "tipe": "Pengeluaran",
+    "tanggal": "2025-08-10",
+    "_idx": 3
+  }
+]
