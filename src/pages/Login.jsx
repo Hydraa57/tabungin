@@ -77,7 +77,7 @@ export default function Login() {
         {/* Logo & heading */}
         <div className="auth-logo">
           <img src={logo} alt="Logo" width="72" height="72" />
-          <div className="auth-title">Dashboard Kontolllll</div>
+          <div className="auth-title">Dashboard Keuangan</div>
           <div className="auth-subtitle">{mode === "login" ? "Masuk untuk melanjutkan" : "Buat akun baru"}</div>
         </div>
 
