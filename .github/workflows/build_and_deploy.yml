@@ -3,6 +3,9 @@ name: build_and_deploy
 on:
   push:
     branches: [main]
+  # (opsional) biar jalan juga saat PR ke main:
+  pull_request:
+    branches: [main]
 
 jobs:
   build:
@@ -21,8 +24,12 @@ jobs:
           cache: npm
           cache-dependency-path: ./package-lock.json
 
-      # (Opsional tapi disarankan) tulis .env untuk build dari Secrets
-      - name: Create .env
+      - name: Show node & npm
+        run: |
+          node -v
+          npm -v
+
+      - name: Create .env for Vite
         run: |
           cat > .env << 'EOF'
           VITE_FIREBASE_API_KEY=${{ secrets.VITE_FIREBASE_API_KEY }}
@@ -33,11 +40,22 @@ jobs:
           VITE_FIREBASE_APP_ID=${{ secrets.VITE_FIREBASE_APP_ID }}
           EOF
 
-      - name: Install deps
+      - name: Install deps (npm ci)
         run: npm ci
 
-      - name: Build
-        run: npm run build
+      - name: List files (debug)
+        run: |
+          ls -la
+          ls -la node_modules/.bin || true
+          cat package.json
+
+      - name: Check vite (debug)
+        run: |
+          npx --yes vite --version || true
+
+      - name: Build (prefer npm script, fallback npx)
+        run: |
+          npm run build || npx --yes vite@5.4.19 build
 
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
